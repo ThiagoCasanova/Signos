@@ -1,0 +1,41 @@
+private ListView listaSignos;
+    private String[] signos = {
+
+            "Áries", "Aquário", "Cancer",
+            "Capricórnio", "Escorpião", "Gêmeos", "Leão",
+                "Libra","Peixes",  "Sagitário", "Touro", "Virgem",
+
+    };
+private String[] perfis = {
+
+        "Áries -  Autosuficiente, nunca se entrega totalmente a alguém.",
+        "Aquário - Problema que não depende só de mim",
+        "Cancer - Cancerianos são o amor em sua forma personificada.",
+        "Capricórnio - Obrigado a todos que me magoaram, vocês só me fortalecem ",
+        "Escorpião - Sou completamente motivado",
+        "Gêmeos - Discussão é comigo mesmo",
+        "Leão - Sou forte, e sou impiedoso com quem me afronta",
+        "Libra - O próprio equilibrio e signo","Peixes - certo, vamos combinar assim, 2 pra mim e 1 pra você",
+        "Sagitário - Sempre muito falante, animado, divertido e otimista",
+        "Touro -Calmo e persistente, não se irrita por bobagens", "Virgem - estou nos meus dias, não me provoque",
+};
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    listaSignos = findViewById(R.id.listViewId);
+    ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1, android.R.id.text1, signos
+
+    );
+        listaSignos.setAdapter(adaptador);
+        listaSignos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                int codigoPosicao = i;
+                Toast.makeText(getApplicationContext(), perfis[codigoPosicao] , Toast.LENGTH_SHORT).show();
+            }
+        }) ;
+}
+}
